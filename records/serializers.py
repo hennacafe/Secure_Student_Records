@@ -1,9 +1,9 @@
-# records/serializers.py
 from rest_framework import serializers
-from .models import Student
+from .models import StudentRecord
 
-class StudentSerializer(serializers.ModelSerializer):
+class StudentRecordSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student
-        fields = '__all__'
-        read_only_fields = ['owner'] 
+        model = StudentRecord
+        fields = ['id', 'owner', 'full_name', 'course', 'year_level']
+        read_only_fields = ['owner']
+        

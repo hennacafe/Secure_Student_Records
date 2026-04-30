@@ -18,14 +18,14 @@ from django.contrib import admin
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from records.views import StudentViewSet
+from records.views import StudentRecordViewSet
 
 router = DefaultRouter()
-router.register(r'students', StudentViewSet, basename='student')
+router.register(r'student-records', StudentRecordViewSet, basename='studentrecord')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'), #[cite: 1]
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
